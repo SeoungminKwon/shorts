@@ -1,0 +1,24 @@
+<configuration>
+    <!-- Logback 설정의 루트 엘리먼트로, 모든 설정이 이 안에 포함됨 -->
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 로그 출력을 콘솔에 하도록 설정하는 Appender -->
+        <encoder>
+            <!-- 로그 메시지 포맷을 지정 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <!-- 패턴 설명:
+                 %d{yyyy-MM-dd HH:mm:ss} : 로그 발생 시간 형식 출력
+                 [%thread]              : 로그를 발생시킨 스레드 이름 출력
+                 %-5level               : 로그 레벨을 5자리 고정 폭으로 좌측 정렬 (INFO, ERROR 등)
+                 %logger{36}            : 로거 이름을 최대 36자까지 출력
+                 - %msg                 : 로그 메시지 출력
+                 %n                     : 줄 바꿈 -->
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <!-- 루트 로거 설정: 애플리케이션 전체의 기본 로그 레벨 지정(INFO 이상 로그 출력) -->
+        <appender-ref ref="Console" />
+        <!-- root 로거가 위에서 정의한 Console Appender로 로그를 전달 -->
+    </root>
+</configuration>
